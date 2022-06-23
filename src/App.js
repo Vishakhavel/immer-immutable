@@ -1,11 +1,11 @@
 import './App.css'
-import HooksCounter from './components/HooksCounter'
-import ImmutableCounter from './components/ImmutableCounter'
+import HooksList from './components/HooksList'
+import ImmerList from './components/ImmerList'
 function App() {
   return (
     <div className='App'>
-      <HooksCounter />
-      <ImmutableCounter />
+      <HooksList />
+      <ImmerList />
     </div>
   )
 }

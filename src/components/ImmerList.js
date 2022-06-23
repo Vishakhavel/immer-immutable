@@ -3,7 +3,7 @@ import React, { Fragment, useState } from 'react'
 import styles from './CommonStyleSheet.module.css'
 import Form from './Form'
 import { useImmer } from 'use-immer'
-const ImmutableCounter = () => {
+const ImmerList = () => {
   const [enteredAge, setEnteredAge] = useImmer('')
   const [enteredName, setEnteredName] = useImmer('')
   const [error, setError] = useImmer()
@@ -28,7 +28,11 @@ const ImmutableCounter = () => {
       setEnteredName('')
 
       setUser((draftState) => {
-        draftState.push({ name: enteredName, age: enteredAge, id: Math.random })
+        draftState.push({
+          name: enteredName,
+          age: enteredAge,
+          id: Math.random().toString(),
+        })
       })
 
       console.log(user)
@@ -65,7 +69,7 @@ const ImmutableCounter = () => {
           <ul>
             {user.map((user) => (
               <li key={user.id}>
-                Name:{user.name}, Age:{user.age}
+                {user.name} - {user.age} years old
               </li>
             ))}
           </ul>
@@ -75,4 +79,4 @@ const ImmutableCounter = () => {
   )
 }
 
-export default ImmutableCounter
+export default ImmerList

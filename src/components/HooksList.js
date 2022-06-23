@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event'
 import React, { Fragment, useState } from 'react'
 import styles from './CommonStyleSheet.module.css'
 import Form from './Form'
-const HooksCounter = () => {
+const HooksList = () => {
   const [enteredAge, setEnteredAge] = useState('')
   const [enteredName, setEnteredName] = useState('')
   const [user, setUser] = useState([])
@@ -28,7 +28,7 @@ const HooksCounter = () => {
       setUser((prevState) => {
         return [
           ...prevState,
-          { name: enteredName, age: enteredAge, id: Math.random() },
+          { name: enteredName, age: enteredAge, id: Math.random().toString() },
         ]
       })
 
@@ -75,4 +75,4 @@ const HooksCounter = () => {
   )
 }
 
-export default HooksCounter
+export default HooksList
