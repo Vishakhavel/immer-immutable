@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event'
 import React, { Fragment, useState } from 'react'
 import styles from './CommonStyleSheet.module.css'
 import Form from './Form'
