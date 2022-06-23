@@ -5,23 +5,18 @@ import Form from './Form'
 const HooksCounter = () => {
   const [enteredAge, setEnteredAge] = useState('')
   const [enteredName, setEnteredName] = useState('')
-
   const [user, setUser] = useState([])
-
   const [error, setError] = useState()
-  // always initialize the useState variable wioth empty quotes, or else warning shows up.
-
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    // console.log(enteredName)
-    // console.log(enteredAge)
-
     if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       // handle error
       setError({
         title: 'Invalid Input',
         message: 'Please fill in Name/Age input fields!',
       })
+
+      alert('invalid input!')
     } else if (+enteredAge < 0) {
       setError({
         title: 'Invalid Input',
@@ -30,9 +25,6 @@ const HooksCounter = () => {
     } else {
       setEnteredAge('')
       setEnteredName('')
-
-      //   props.onValidInput(enteredName, enteredAge) // call to App.js
-
       setUser((prevState) => {
         return [
           ...prevState,
@@ -52,37 +44,33 @@ const HooksCounter = () => {
     setEnteredAge(event.target.value)
   }
 
-  const handleErrorConfirm = () => {
-    setError(null)
-  }
+  //   const handleErrorConfirm = () => {
+  //     setError(null)
+  //   }
 
   return (
     <Fragment>
-      <Fragment>
-        <div className={`${styles.split} ${styles.right}`}>
-          <div>
-            <h2>Todo list using useState for state management</h2>
+      <div className={`${styles.split} ${styles.right}`}>
+        <div>
+          <h1 className={styles.rightHeader}>useState</h1>
 
-            <Form
-              enteredName={enteredAge}
-              enteredAge={enteredAge}
-              handleErrorConfirm={handleErrorConfirm}
-              handleFormSubmit={handleFormSubmit}
-              handleInputAge={handleInputAge}
-              handleInputName={handleInputName}
-            />
-            <p>
-              <ul>
-                {user.map((user) => (
-                  <li key={user.id}>
-                    {user.name} - {user.age} years old
-                  </li>
-                ))}
-              </ul>
-            </p>
-          </div>
+          <Form
+            enteredName={enteredName}
+            enteredAge={enteredAge}
+            //   handleErrorConfirm={handleErrorConfirm}
+            handleFormSubmit={handleFormSubmit}
+            handleInputAge={handleInputAge}
+            handleInputName={handleInputName}
+          />
+          <ul>
+            {user.map((user) => (
+              <li key={user.id}>
+                {user.name} - {user.age} years old
+              </li>
+            ))}
+          </ul>
         </div>
-      </Fragment>
+      </div>
     </Fragment>
   )
 }

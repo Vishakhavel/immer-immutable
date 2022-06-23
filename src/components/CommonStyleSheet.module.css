@@ -20,7 +20,7 @@ body {
 
 .right {
   right: 0;
-  background-color: navy;
+  background-color: red;
 }
 
 .centered {
@@ -67,3 +67,34 @@ input[type='number'] {
 .ageInput {
   padding: 10px;
 }
+
+ul {
+  list-style: none;
+  padding: 1 rem;
+}
+
+.submitButtonRight {
+  border-radius: 10rem;
+  background-color: black;
+  color: white;
+}
+
+.submitButtonLeft {
+  border-radius: 10rem;
+  background-color: black;
+  color: white;
+}
+
+.rightHeader {
+  color: black;
+}
+
+.leftHeader {
+  color: red;
+}
+
+/* .formBox {
+  border-style: dashed;
+  padding: 10px;
+  margin: auto;
+} */

@@ -43,37 +43,34 @@ const ImmutableCounter = () => {
     setEnteredAge(event.target.value)
   }
 
-  const handleErrorConfirm = () => {
-    setError(null)
-  }
+  // const handleErrorConfirm = () => {
+  //   setError(null)
+  // }
 
   return (
     <Fragment>
-      <Fragment>
-        <div className={`${styles.split} ${styles.left}`}>
-          <div>
-            <h2>Todo list using useState for state management</h2>
+      <div className={`${styles.split} ${styles.left}`}>
+        <div>
+          <h1 className={styles.leftHeader}>useImmer</h1>
 
-            <Form
-              enteredName={enteredAge}
-              enteredAge={enteredAge}
-              handleErrorConfirm={handleErrorConfirm}
-              handleFormSubmit={handleFormSubmit}
-              handleInputAge={handleInputAge}
-              handleInputName={handleInputName}
-            />
-            <p>
-              <ul>
-                {user.map((user) => (
-                  <li key={user.id}>
-                    {user.name} - {user.age} years old
-                  </li>
-                ))}
-              </ul>
-            </p>
-          </div>
+          <Form
+            enteredName={enteredName}
+            enteredAge={enteredAge}
+            // handleErrorConfirm={handleErrorConfirm}
+            handleFormSubmit={handleFormSubmit}
+            handleInputAge={handleInputAge}
+            handleInputName={handleInputName}
+          />
+
+          <ul>
+            {user.map((user) => (
+              <li key={user.id}>
+                Name:{user.name}, Age:{user.age}
+              </li>
+            ))}
+          </ul>
         </div>
-      </Fragment>
+      </div>
     </Fragment>
   )
 }
